@@ -89,6 +89,7 @@ const AlumniDashboard = () => {
             </Link>
             <div className="hidden md:flex space-x-6">
               <Link to="/alumni/dashboard" className="text-primary font-medium">Feed</Link>
+              <Link to="/alumni/directory" className="text-muted-foreground hover:text-foreground">Directory</Link>
               <Link to="/alumni/events" className="text-muted-foreground hover:text-foreground">Events</Link>
               <Link to="/alumni/mentorship" className="text-muted-foreground hover:text-foreground">Mentorship</Link>
               <Link to="/alumni/network" className="text-muted-foreground hover:text-foreground">Network</Link>
