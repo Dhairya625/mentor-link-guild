@@ -1,0 +1,45 @@
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Landing from "./pages/Landing";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import AlumniDashboard from "./pages/AlumniDashboard";
+import AlumniDirectory from "./pages/AlumniDirectory";
+import AlumniEvents from "./pages/AlumniEvents";
+import AlumniMentorship from "./pages/AlumniMentorship";
+import StudentDashboard from "./pages/StudentDashboard";
+import StudentEvents from "./pages/StudentEvents";
+import AdminDashboard from "./pages/AdminDashboard";
+import NotFound from "./pages/NotFound";
+
+const queryClient = new QueryClient();
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/alumni/dashboard" element={<AlumniDashboard />} />
+          <Route path="/alumni/directory" element={<AlumniDirectory />} />
+          <Route path="/alumni/events" element={<AlumniEvents />} />
+          <Route path="/alumni/mentorship" element={<AlumniMentorship />} />
+          <Route path="/student/dashboard" element={<StudentDashboard />} />
+          <Route path="/student/events" element={<StudentEvents />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
+
+export default App;
